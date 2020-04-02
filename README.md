@@ -1,2 +1,2 @@
 # BasicMainApp
-A basic  and public version of my MainApp
+BasicMainApp is the basic and public core project for a modular app.
