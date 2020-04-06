@@ -12,8 +12,8 @@ platform :ios, '11.0'
 ###
 
 
-#Use this variable to chage pod install from local_pods, remote_pods, develop_pods
-pods_environment = "develop" # <- HERE: Change this line, options are: "local", "develop" "master"
+#Use this variable to change pod install from local_pods, develop_pods, master_pods, feature_pods
+pods_environment = "develop" # <- HERE: Change this line, options are: 'local', develop', 'master' or 'feature'
 
 ###
 ### --- METHODS ---
@@ -24,6 +24,17 @@ def local_pods
   color(32) { puts "Installing Local Pods..." }
   pod 'BasicCommons', :path => '../BasicCommons/'
   pod 'CuotasModule', :path => '../CuotasModule/'
+end
+
+#Use this funcion to compile feature pods as development in featue
+def feature_pods
+    ### ONLY FOR DEVELOP PURPOSES ###
+    feature_branch = "master" # <- HERE: Change this line to setup ALL the pods repository from another branch WHEN pods_environment = "develop"
+    ### ONLY FOR DEVELOP PURPOSES ###
+
+    color(32) { puts "Installing Develop Pods from branch: #{feature_branch}" }
+    pod 'BasicCommons', :git => 'git@github.com:kevinOlivet/BasicCommons.git', :branch => "#{feature_branch}"
+    pod 'CuotasModule', :git => 'git@github.com:kevinOlivet/CuotasModule.git', :branch => "#{feature_branch}"
 end
 
 #Use this funcion to compile develop pods as development in develop
