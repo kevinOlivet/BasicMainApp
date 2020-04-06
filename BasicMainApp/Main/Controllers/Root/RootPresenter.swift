@@ -19,8 +19,8 @@ class RootPresenter: RootPresentationLogic {
 
     func presentSetupUI(response: Root.Basic.Response) {
         let viewModel = Root.Basic.ViewModel(
-            title: response.title.localized(),
-            subtitle: response.subtitle.localized()
+            title: response.title.localized,
+            subtitle: response.subtitle.localized
         )
         viewController?.displaySetupUI(viewModel: viewModel)
     }
