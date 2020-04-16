@@ -85,8 +85,6 @@ target 'BasicMainApp' do
   color(32) { puts "\nFetching Modules Pods..." }
   use_frameworks!
   inhibit_all_warnings!
-  pod "AEConsole", "0.7.0"
-  pod "AlamofireNetworkActivityLogger", "~> 2.4.0"
 
   #MainApp Pods
   pod_selector(pods_environment)
