@@ -23,6 +23,7 @@ pods_environment = "develop" # <- HERE: Change this line, options are: 'local', 
 def local_pods
   color(32) { puts "Installing Local Pods..." }
   pod 'BasicCommons', :path => '../BasicCommons/'
+  pod 'BasicUIElements', :path => '../BasicUIElements/'
   pod 'CuotasModule', :path => '../CuotasModule/'
 end
 
@@ -34,6 +35,7 @@ def feature_pods
 
     color(32) { puts "Installing Develop Pods from branch: #{feature_branch}" }
     pod 'BasicCommons', :git => 'git@github.com:kevinOlivet/BasicCommons.git', :branch => "#{feature_branch}"
+    pod 'BasicUIElements', :git => 'git@github.com:kevinOlivet/BasicUIElements.git', :branch => "#{feature_branch}"
     pod 'CuotasModule', :git => 'git@github.com:kevinOlivet/CuotasModule.git', :branch => "#{feature_branch}"
 end
 
@@ -41,6 +43,7 @@ end
 def develop_pods
     color(32) { puts "Installing Develop Pods..." }
     pod 'BasicCommons', :git => 'git@github.com:kevinOlivet/BasicCommons.git', :branch => 'develop'
+    pod 'BasicUIElements', :git => 'git@github.com:kevinOlivet/BasicUIElements.git', :branch => 'develop'
     pod 'CuotasModule', :git => 'git@github.com:kevinOlivet/CuotasModule.git', :branch => 'develop'
 end
 
@@ -48,6 +51,7 @@ end
 def master_pods
     color(32) { puts "Installing Develop Pods..." }
     pod 'BasicCommons', :git => 'git@github.com:kevinOlivet/BasicCommons.git', :branch => 'master'
+    pod 'BasicUIElements', :git => 'git@github.com:kevinOlivet/BasicUIElements.git', :branch => 'master'
     pod 'CuotasModule', :git => 'git@github.com:kevinOlivet/CuotasModule.git', :branch => 'master'
 end
 
