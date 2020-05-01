@@ -8,6 +8,10 @@
 
 import UIKit
 
+#if DEBUG
+    import AlamofireNetworkActivityLogger
+#endif
+
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
@@ -18,6 +22,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.rootViewController = MainTabBarViewController()
         window?.makeKeyAndVisible()
+
+        #if DEBUG
+            NetworkActivityLogger.shared.startLogging()
+            NetworkActivityLogger.shared.level = .debug
+        #endif
 
         return true
     }
