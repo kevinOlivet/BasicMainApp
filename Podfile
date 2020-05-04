@@ -13,7 +13,7 @@ platform :ios, '11.0'
 
 
 #Use this variable to change pod install from local_pods, develop_pods, master_pods, feature_pods
-pods_environment = "develop" # <- HERE: Change this line, options are: 'local', develop', 'master' or 'feature'
+pods_environment = "develop" # <- HERE: Change this line, options are: 'local', develop', 'master', 'feature' or 'release'
 
 ###
 ### --- METHODS ---
@@ -50,6 +50,13 @@ end
 #Use this funcion to compile master pods as development in master
 def master_pods
     color(32) { puts "Installing Develop Pods..." }
+    pod 'BasicCommons', :git => 'git@github.com:kevinOlivet/BasicCommons.git', :branch => 'master'
+    pod 'BasicUIElements', :git => 'git@github.com:kevinOlivet/BasicUIElements.git', :branch => 'master'
+    pod 'CuotasModule', :git => 'git@github.com:kevinOlivet/CuotasModule.git', :branch => 'master'
+end
+
+## This should be changed on every release! Check the branch
+def release_pods
     pod 'BasicCommons', :git => 'git@github.com:kevinOlivet/BasicCommons.git', :branch => 'master'
     pod 'BasicUIElements', :git => 'git@github.com:kevinOlivet/BasicUIElements.git', :branch => 'master'
     pod 'CuotasModule', :git => 'git@github.com:kevinOlivet/CuotasModule.git', :branch => 'master'
