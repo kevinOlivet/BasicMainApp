@@ -8,28 +8,38 @@ The project is modular and extensible.  This is only the main part and it can ea
 For the same reasons, images and reusable UIElements are collected in the BasicUIElements module.
 These three together represent the Core of the project.
 As an example of what how a feature module would be integrated, currently the "CuotasModule" is implemented.
+![](READMEimages/modularityImage.png)
 
 # Podfile:
 The modules are installed via the podfile and the podfile is divided into different environments that correspond to branches in git.
+![](READMEimages/podChooser.png)
 For example: using the keyword "master" where indicated will install the master branches of the listed modules.
 Using "develop" will do the same with the develop branches.
 Use "feature" if a feature branches are currently active.
+![](READMEimages/podEnvironments.png)
 Using "local" will install files that already exist in the same folder and not the remote versions. I use this for faster development across modules if needed (new images to UIElements, Commons etc.)  
 Note that this works best using the "Legacy Build System" found in the workplace settings.
 
 # Enviroments:
-The app can be run in different environments.  Currently the choices are: DEV, QA, INT, LOCAL and PROD. The environment choice defines what features are turned on or off in the app using the Configurations.plist
+The app can be run in different environments.  Currently the choices are: DEV, QA, INT, LOCAL and PROD. 
+![](READMEimages/runEnvironments.png)
+The environment choice defines what features are turned on or off in the app using the Configurations.plist
 Most notable are the URL construction, stubs and FeatureToggle (explained below).
 
 # URL construction
-In a production level app, the urls will be different depending on the stage of development.  For example a QA environment will be used for testing while the PROD will point to the live backend used by clients. 
+In a production level app, the urls will be different depending on the stage of development.  
+![](READMEimages/urlConstruction.png)
+For example a QA environment will be used for testing while the PROD will point to the live backend used by clients. 
 DEV is a special case and and uses stubs (explained below).
 
 # Stubs
-Using the Configurations.plist by running in the DEV environment the actual url will not be called.  Instead by using OHHTTPStubs the contents of a specified JSON file will be returned.  This allows for parallel development while the backend isn't ready or in case there are connectivity problems or just to be faster.
+Using the Configurations.plist by running in the DEV environment the actual url will not be called.  
+![](READMEimages/stubs.png)
+Instead by using OHHTTPStubs the contents of a specified JSON file will be returned.  This allows for parallel development while the backend isn't ready or in case there are connectivity problems or just to be faster.
 
 # FeatureToggle
 The use of the FeatureToggle in the Configurations.plist combined with the choice of environment allows for certain features to be enabled or disabled easily.
+![](READMEimages/featureToggle.png)
 
 =================================
 
