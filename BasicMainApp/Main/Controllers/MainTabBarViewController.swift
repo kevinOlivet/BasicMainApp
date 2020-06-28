@@ -49,7 +49,7 @@ class MainTabBarViewController: UITabBarController, UITabBarControllerDelegate {
 
         addViewController(
             tabContainerVC,
-            title: "Home",
+            title: "Transbank",
             image: UIImage(named: "tab_home"),
             selectedImage: UIImage(named: "tab_home")
         )
