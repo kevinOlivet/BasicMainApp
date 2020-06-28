@@ -13,7 +13,7 @@ platform :ios, '11.0'
 
 
 #Use this variable to change pod install from local_pods, develop_pods, master_pods, feature_pods
-pods_environment = "develop" # <- HERE: Change this line, options are: 'local', develop', 'master', 'feature' or 'release'
+pods_environment = "feature" # <- HERE: Change this line, options are: 'local', develop', 'master', 'feature' or 'release'
 
 ###
 ### --- METHODS ---
@@ -24,19 +24,19 @@ def local_pods
   color(32) { puts "Installing Local Pods..." }
   pod 'BasicCommons', :path => '../BasicCommons/'
   pod 'BasicUIElements', :path => '../BasicUIElements/'
-  pod 'CuotasModule', :path => '../CuotasModule/'
+  pod 'Transbank', :path => '../Transbank/'
 end
 
 #Use this funcion to compile feature pods as development in featue
 def feature_pods
     ### ONLY FOR DEVELOP PURPOSES ###
-    feature_branch = "master" # <- HERE: Change this line to setup ALL the pods repository from another branch WHEN pods_environment = "develop"
+    feature_branch = "feature-transbank" # <- HERE: Change this line to setup ALL the pods repository from another branch WHEN pods_environment = "develop"
     ### ONLY FOR DEVELOP PURPOSES ###
 
     color(32) { puts "Installing Develop Pods from branch: #{feature_branch}" }
     pod 'BasicCommons', :git => 'git@github.com:kevinOlivet/BasicCommons.git', :branch => "#{feature_branch}"
     pod 'BasicUIElements', :git => 'git@github.com:kevinOlivet/BasicUIElements.git', :branch => "#{feature_branch}"
-    pod 'CuotasModule', :git => 'git@github.com:kevinOlivet/CuotasModule.git', :branch => "#{feature_branch}"
+    pod 'Transbank', :git => 'git@github.com:kevinOlivet/Transbank.git', :branch => "#{feature_branch}"
 end
 
 #Use this funcion to compile develop pods as development in develop
@@ -44,7 +44,7 @@ def develop_pods
     color(32) { puts "Installing Develop Pods..." }
     pod 'BasicCommons', :git => 'git@github.com:kevinOlivet/BasicCommons.git', :branch => 'develop'
     pod 'BasicUIElements', :git => 'git@github.com:kevinOlivet/BasicUIElements.git', :branch => 'develop'
-    pod 'CuotasModule', :git => 'git@github.com:kevinOlivet/CuotasModule.git', :branch => 'develop'
+    pod 'Transbank', :git => 'git@github.com:kevinOlivet/Transbank.git', :branch => 'develop'
 end
 
 #Use this funcion to compile master pods as development in master
@@ -52,14 +52,14 @@ def master_pods
     color(32) { puts "Installing Develop Pods..." }
     pod 'BasicCommons', :git => 'git@github.com:kevinOlivet/BasicCommons.git', :branch => 'master'
     pod 'BasicUIElements', :git => 'git@github.com:kevinOlivet/BasicUIElements.git', :branch => 'master'
-    pod 'CuotasModule', :git => 'git@github.com:kevinOlivet/CuotasModule.git', :branch => 'master'
+    pod 'Transbank', :git => 'git@github.com:kevinOlivet/Transbank.git', :branch => 'master'
 end
 
 ## This should be changed on every release! Check the branch
 def release_pods
     pod 'BasicCommons', :git => 'git@github.com:kevinOlivet/BasicCommons.git', :branch => 'master'
     pod 'BasicUIElements', :git => 'git@github.com:kevinOlivet/BasicUIElements.git', :branch => 'master'
-    pod 'CuotasModule', :git => 'git@github.com:kevinOlivet/CuotasModule.git', :branch => 'master'
+    pod 'Transbank', :git => 'git@github.com:kevinOlivet/Transbank.git', :branch => 'master'
 end
 
 ###

@@ -8,7 +8,7 @@
 
 // TODO: - import additional modules
 import BasicCommons
-import CuotasModule
+import Transbank
 import UIKit
 
 class MainTabBarViewController: UITabBarController, UITabBarControllerDelegate {
@@ -41,11 +41,11 @@ class MainTabBarViewController: UITabBarController, UITabBarControllerDelegate {
         #if DEBUG
         if Configuration.App.stubs {
             // TODO: - enabdidMoveleStubs for modules here
-            CuotasModuleStubs().enableStubs()
+            TransbankStubs().enableStubs()
         }
         #endif
 
-        let tabContainerVC = CuotasModuleFactory().getRootViewController()
+        let tabContainerVC = TransbankFactory().getRootViewController()
 
         addViewController(
             tabContainerVC,

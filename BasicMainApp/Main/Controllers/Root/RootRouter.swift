@@ -7,12 +7,12 @@
 //
 
 import BasicCommons
-import CuotasModule
+import Transbank
 import UIKit
 
 @objc
 protocol RootRoutingLogic {
-    func routeToCuotasModule()
+    func routeToTransbank()
 }
 
 protocol RootDataPassing {
@@ -25,18 +25,18 @@ class RootRouter: NSObject, RootRoutingLogic, RootDataPassing {
 
     // MARK: Routing
 
-    func routeToCuotasModule() {
+    func routeToTransbank() {
         let storyboard = UIStoryboard(
-            name: "CuotasMain",
-            bundle: Utils.bundle(forClass: EnterAmountCleanViewController.classForCoder())
+            name: "MoviesMain",
+            bundle: Utils.bundle(forClass: MovieSummaryViewController.classForCoder())
             )
         let destinationNVC = storyboard.instantiateInitialViewController() as! UINavigationController
 //        destinationNVC.modalPresentationStyle = .fullScreen
-        navigateToCuotasModule(source: viewController!, destination: destinationNVC)
+        navigateToTransbank(source: viewController!, destination: destinationNVC)
     }
 
     // MARK: Navigation
-     func navigateToCuotasModule(source: RootViewController, destination: UINavigationController) {
+     func navigateToTransbank(source: RootViewController, destination: UINavigationController) {
         source.present(destination, animated: true, completion: nil)
     }
 }

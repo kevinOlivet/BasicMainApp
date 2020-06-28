@@ -68,41 +68,41 @@
 		<key>host</key>
 		<dict>
 			<key>main-dev</key>
-			<string>api.mercadopago.com</string>
+			<string>api.themoviedb.org</string>
 			<key>main-loc</key>
 			<string>localhost:8080</string>
 			<key>main-int</key>
-			<string>api.mercadopago.com</string>
+			<string>api.themoviedb.org</string>
 			<key>main-qa</key>
-			<string>api.mercadopago.com</string>
+			<string>api.themoviedb.org</string>
 			<key>main-prod</key>
-			<string>api.mercadopago.com</string>
+			<string>api.themoviedb.org</string>
 		</dict>
 		<key>basePath</key>
 		<dict>
 			<key>main-dev</key>
-			<string>/v1</string>
+			<string>/3</string>
 			<key>main-loc</key>
 			<string></string>
 			<key>main-int</key>
-			<string>/v1</string>
+			<string>/3</string>
 			<key>main-qa</key>
-			<string>/v1</string>
+			<string>/3</string>
 			<key>main-prod</key>
-			<string>/v1</string>
+			<string>/3</string>
 		</dict>
 		<key>branch</key>
 		<dict>
 			<key>main-dev</key>
-			<string>/payment_methods</string>
+			<string>/movie</string>
 			<key>main-loc</key>
 			<string></string>
 			<key>main-int</key>
-			<string>/payment_methods</string>
+			<string>/movie</string>
 			<key>main-qa</key>
-			<string>/payment_methods</string>
+			<string>/movie</string>
 			<key>main-prod</key>
-			<string>/payment_methods</string>
+			<string>/movie</string>
 		</dict>
 	</dict>
 	<key>FeatureToggle</key>

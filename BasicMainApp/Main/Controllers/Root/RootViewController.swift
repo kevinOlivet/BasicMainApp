@@ -7,7 +7,7 @@
 //
 
 import BasicCommons
-import CuotasModule
+import Transbank
 
 protocol RootDisplayLogic: AnyObject {
     func displaySetupUI(viewModel: Root.Basic.ViewModel)
@@ -55,7 +55,7 @@ class RootViewController: UIViewController, RootDisplayLogic {
         #if DEBUG
         if Configuration.App.stubs {
             print("Here stubs enabled")
-            CuotasModuleStubs().enableStubs()
+            TransbankStubs().enableStubs()
         } else {
             print("Here stubs disabled")
         }
@@ -64,13 +64,13 @@ class RootViewController: UIViewController, RootDisplayLogic {
 
     // MARK: Methods
     func displaySetupUI(viewModel: Root.Basic.ViewModel) {
-        view.addTapAction(target: self, action: #selector(goToCuotasModule))
+        view.addTapAction(target: self, action: #selector(goToTransbank))
         titleLabel.text = viewModel.title
         subtitleLabel.text = viewModel.subtitle
     }
 
     @objc
-    func goToCuotasModule() {
-        router?.routeToCuotasModule()
+    func goToTransbank() {
+        router?.routeToTransbank()
     }
 }

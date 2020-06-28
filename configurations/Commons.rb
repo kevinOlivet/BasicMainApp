@@ -1,5 +1,5 @@
 DEBUG_DOMAINS = [
-  'BasicCommons', 'CuotasModule'
+  'BasicCommons', 'Transbank'
 ]
 
 IGNORE_ASSETS_DOMAINS = [ 'BasicCommons']
