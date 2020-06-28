@@ -1,4 +1,24 @@
 # BasicMainApp
+
+This base project is found here: https://github.com/kevinOlivet/BasicMainApp/tree/feature-transbank
+It is modified to serve as the base for a test module for Transbank consuming IMBD
+
+## Example
+
+Clone the pod from here: https://github.com/kevinOlivet/BasicMainApp/tree/feature-transbank
+
+and run `pod install` from the BasicMainApp directory first.
+
+## Author
+
+kevinOlivet, kevinolivet@yahoo.com
+
+## License
+
+This project is available under the MIT license. See the LICENSE file for more info.
+
+
+## Features
 BasicMainApp is the basic and public core project for a modular app.
 
 Here are the outstanding features of BasicMainApp:
