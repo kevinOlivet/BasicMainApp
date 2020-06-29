@@ -1,7 +1,10 @@
 # BasicMainApp
 
 This base project is found here: https://github.com/kevinOlivet/BasicMainApp/tree/feature-transbank
-It is modified to serve as the base for a test module for Transbank consuming IMBD
+
+It is modified to serve as the base for a test module for Transbank consuming IMBD.
+
+Simply switch to branch "feature-transbank" and run pod install.
 
 ## Example
 
