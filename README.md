@@ -6,6 +6,14 @@ It is modified to serve as the base for a test module for Transbank consuming IM
 
 Simply switch to branch "feature-transbank" and run pod install.
 
+Note:  The unit tests are with the individual modules.  
+
+In this case, clone the repo here:
+
+https://github.com/kevinOlivet/Transbank/tree/feature-transbank
+
+install the pods and run the unit tests.
+
 ## Example
 
 Clone the pod from here: https://github.com/kevinOlivet/BasicMainApp/tree/feature-transbank
