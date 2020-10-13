@@ -8,7 +8,7 @@
 
 // TODO: - import additional modules
 import BasicCommons
-import CuotasModule
+import OPHelpCenter
 import UIKit
 
 class MainTabBarViewController: UITabBarController, UITabBarControllerDelegate {
@@ -41,11 +41,12 @@ class MainTabBarViewController: UITabBarController, UITabBarControllerDelegate {
         #if DEBUG
         if Configuration.App.stubs {
             // TODO: - enabdidMoveleStubs for modules here
-            CuotasModuleStubs().enableStubs()
+//            CuotasModuleStubs().enableStubs()
         }
         #endif
 
-        let tabContainerVC = CuotasModuleFactory().getRootViewController()
+//        let tabContainerVC = CuotasModuleFactory().getRootViewController()
+        let tabContainerVC = OPHelpCenterFactory().getRootViewController()
 
         addViewController(
             tabContainerVC,

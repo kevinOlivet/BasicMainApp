@@ -7,7 +7,7 @@
 //
 
 import BasicCommons
-import CuotasModule
+import OPHelpCenter
 
 protocol RootDisplayLogic: AnyObject {
     func displaySetupUI(viewModel: Root.Basic.ViewModel)
@@ -55,7 +55,7 @@ class RootViewController: UIViewController, RootDisplayLogic {
         #if DEBUG
         if Configuration.App.stubs {
             print("Here stubs enabled")
-            CuotasModuleStubs().enableStubs()
+//            CuotasModuleStubs().enableStubs()
         } else {
             print("Here stubs disabled")
         }

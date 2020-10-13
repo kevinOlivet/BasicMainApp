@@ -3,17 +3,17 @@ platform :ios, '11.0'
 
 ###
 ### --- CONFIG ---
-# ███╗   ███╗ █████╗ ██╗███╗   ██╗ █████╗ ██████╗ ██████╗ 
+# ███╗   ███╗ █████╗ ██╗███╗   ██╗ █████╗ ██████╗ ██████╗
 # ████╗ ████║██╔══██╗██║████╗  ██║██╔══██╗██╔══██╗██╔══██╗
 # ██╔████╔██║███████║██║██╔██╗ ██║███████║██████╔╝██████╔╝
-# ██║╚██╔╝██║██╔══██║██║██║╚██╗██║██╔══██║██╔═══╝ ██╔═══╝ 
-# ██║ ╚═╝ ██║██║  ██║██║██║ ╚████║██║  ██║██║     ██║     
-# ╚═╝     ╚═╝╚═╝  ╚═╝╚═╝╚═╝  ╚═══╝╚═╝  ╚═╝╚═╝     ╚═╝                                                           
+# ██║╚██╔╝██║██╔══██║██║██║╚██╗██║██╔══██║██╔═══╝ ██╔═══╝
+# ██║ ╚═╝ ██║██║  ██║██║██║ ╚████║██║  ██║██║     ██║
+# ╚═╝     ╚═╝╚═╝  ╚═╝╚═╝╚═╝  ╚═══╝╚═╝  ╚═╝╚═╝     ╚═╝
 ###
 
 
 #Use this variable to change pod install from local_pods, develop_pods, master_pods, feature_pods
-pods_environment = "develop" # <- HERE: Change this line, options are: 'local', develop', 'master', 'feature' or 'release'
+pods_environment = "local" # <- HERE: Change this line, options are: 'local', develop', 'master', 'feature' or 'release'
 
 ###
 ### --- METHODS ---
@@ -24,7 +24,12 @@ def local_pods
   color(32) { puts "Installing Local Pods..." }
   pod 'BasicCommons', :path => '../BasicCommons/'
   pod 'BasicUIElements', :path => '../BasicUIElements/'
-  pod 'CuotasModule', :path => '../CuotasModule/'
+  # pod 'CuotasModule', :path => '../CuotasModule/'
+  pod 'OPCommons', :path => '../OPCommons/'
+  pod 'OPHelpCenter', :path => '../OPHelpCenter/'
+
+  # pod 'OPCommons', :git => 'https://github.com/kevinOlivet/OPCommons.git', :branch => 'feature-sva-integrating-commons'
+  # pod 'OPHelpCenter', :git => 'https://github.com/kevinOlivet/OPHelpCenter.git', :branch => 'feature-sva-integrating-commons'
 end
 
 #Use this funcion to compile feature pods as development in featue
@@ -36,7 +41,7 @@ def feature_pods
     color(32) { puts "Installing Develop Pods from branch: #{feature_branch}" }
     pod 'BasicCommons', :git => 'git@github.com:kevinOlivet/BasicCommons.git', :branch => "#{feature_branch}"
     pod 'BasicUIElements', :git => 'git@github.com:kevinOlivet/BasicUIElements.git', :branch => "#{feature_branch}"
-    pod 'CuotasModule', :git => 'git@github.com:kevinOlivet/CuotasModule.git', :branch => "#{feature_branch}"
+    # pod 'CuotasModule', :git => 'git@github.com:kevinOlivet/CuotasModule.git', :branch => "#{feature_branch}"
 end
 
 #Use this funcion to compile develop pods as development in develop
@@ -52,14 +57,14 @@ def master_pods
     color(32) { puts "Installing Develop Pods..." }
     pod 'BasicCommons', :git => 'git@github.com:kevinOlivet/BasicCommons.git', :branch => 'master'
     pod 'BasicUIElements', :git => 'git@github.com:kevinOlivet/BasicUIElements.git', :branch => 'master'
-    pod 'CuotasModule', :git => 'git@github.com:kevinOlivet/CuotasModule.git', :branch => 'master'
+    # pod 'CuotasModule', :git => 'git@github.com:kevinOlivet/CuotasModule.git', :branch => 'master'
 end
 
 ## This should be changed on every release! Check the branch
 def release_pods
     pod 'BasicCommons', :git => 'git@github.com:kevinOlivet/BasicCommons.git', :branch => 'master'
     pod 'BasicUIElements', :git => 'git@github.com:kevinOlivet/BasicUIElements.git', :branch => 'master'
-    pod 'CuotasModule', :git => 'git@github.com:kevinOlivet/CuotasModule.git', :branch => 'master'
+    # pod 'CuotasModule', :git => 'git@github.com:kevinOlivet/CuotasModule.git', :branch => 'master'
 end
 
 ###
@@ -105,7 +110,7 @@ target 'BasicMainApp' do
     #              :script => "$SRCROOT/configurations/Build-Phases/swiftlint_personas.sh",
     #              :show_env_vars_in_log => true,
     #              :execution_position => :before_compile
-                 
+
 end
 
 # Workaround for Cocoapods issue #7606
