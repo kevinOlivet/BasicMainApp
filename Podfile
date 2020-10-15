@@ -22,11 +22,11 @@ pods_environment = "local" # <- HERE: Change this line, options are: 'local', de
 #Use this funcion to compile PRIVATE pods as development in local
 def local_pods
   color(32) { puts "Installing Local Pods..." }
+  pod 'OPCommons', :path => '../commons-ios/'
+  pod 'OPHelpCenter', :path => '../help-center-ios/'
   pod 'BasicCommons', :path => '../BasicCommons/'
   pod 'BasicUIElements', :path => '../BasicUIElements/'
   # pod 'CuotasModule', :path => '../CuotasModule/'
-  pod 'OPCommons', :path => '../OPCommons/'
-  pod 'OPHelpCenter', :path => '../OPHelpCenter/'
 
   # pod 'OPCommons', :git => 'https://github.com/kevinOlivet/OPCommons.git', :branch => 'feature-sva-integrating-commons'
   # pod 'OPHelpCenter', :git => 'https://github.com/kevinOlivet/OPHelpCenter.git', :branch => 'feature-sva-integrating-commons'
@@ -39,6 +39,8 @@ def feature_pods
     ### ONLY FOR DEVELOP PURPOSES ###
 
     color(32) { puts "Installing Develop Pods from branch: #{feature_branch}" }
+    pod 'OPCommons', :git => 'https://git.tools.tbk.cl/scm/onepay/commons-ios.git', :branch => "#{feature_branch}"
+    pod 'OPHelpCenter', :git => 'https://git.tools.tbk.cl/scm/onepay/help-center-ios.git', :branch => "#{feature_branch}"
     pod 'BasicCommons', :git => 'git@github.com:kevinOlivet/BasicCommons.git', :branch => "#{feature_branch}"
     pod 'BasicUIElements', :git => 'git@github.com:kevinOlivet/BasicUIElements.git', :branch => "#{feature_branch}"
     # pod 'CuotasModule', :git => 'git@github.com:kevinOlivet/CuotasModule.git', :branch => "#{feature_branch}"
@@ -47,14 +49,18 @@ end
 #Use this funcion to compile develop pods as development in develop
 def develop_pods
     color(32) { puts "Installing Develop Pods..." }
+    pod 'OPCommons', :git => 'https://git.tools.tbk.cl/scm/onepay/commons-ios.git', :branch => 'develop'
+    pod 'OPHelpCenter', :git => 'https://git.tools.tbk.cl/scm/onepay/help-center-ios.git', :branch => 'develop'
     pod 'BasicCommons', :git => 'git@github.com:kevinOlivet/BasicCommons.git', :branch => 'develop'
     pod 'BasicUIElements', :git => 'git@github.com:kevinOlivet/BasicUIElements.git', :branch => 'develop'
-    pod 'CuotasModule', :git => 'git@github.com:kevinOlivet/CuotasModule.git', :branch => 'develop'
+    # pod 'CuotasModule', :git => 'git@github.com:kevinOlivet/CuotasModule.git', :branch => 'develop'
 end
 
 #Use this funcion to compile master pods as development in master
 def master_pods
     color(32) { puts "Installing Develop Pods..." }
+    pod 'OPCommons', :git => 'https://git.tools.tbk.cl/scm/onepay/commons-ios.git', :branch => 'master'
+    pod 'OPHelpCenter', :git => 'https://git.tools.tbk.cl/scm/onepay/help-center-ios.git', :branch => 'master'
     pod 'BasicCommons', :git => 'git@github.com:kevinOlivet/BasicCommons.git', :branch => 'master'
     pod 'BasicUIElements', :git => 'git@github.com:kevinOlivet/BasicUIElements.git', :branch => 'master'
     # pod 'CuotasModule', :git => 'git@github.com:kevinOlivet/CuotasModule.git', :branch => 'master'
@@ -62,9 +68,11 @@ end
 
 ## This should be changed on every release! Check the branch
 def release_pods
-    pod 'BasicCommons', :git => 'git@github.com:kevinOlivet/BasicCommons.git', :branch => 'master'
-    pod 'BasicUIElements', :git => 'git@github.com:kevinOlivet/BasicUIElements.git', :branch => 'master'
-    # pod 'CuotasModule', :git => 'git@github.com:kevinOlivet/CuotasModule.git', :branch => 'master'
+  pod 'OPCommons', :git => 'https://git.tools.tbk.cl/scm/onepay/commons-ios.git', :branch => 'develop'
+  pod 'OPHelpCenter', :git => 'https://git.tools.tbk.cl/scm/onepay/help-center-ios.git', :branch => 'develop'
+  pod 'BasicCommons', :git => 'git@github.com:kevinOlivet/BasicCommons.git', :branch => 'master'
+  pod 'BasicUIElements', :git => 'git@github.com:kevinOlivet/BasicUIElements.git', :branch => 'master'
+  # pod 'CuotasModule', :git => 'git@github.com:kevinOlivet/CuotasModule.git', :branch => 'master'
 end
 
 ###
