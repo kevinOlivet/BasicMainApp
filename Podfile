@@ -1,5 +1,6 @@
 source "https://github.com/CocoaPods/Specs.git"
 platform :ios, '11.0'
+install! 'cocoapods', :disable_input_output_paths => true
 
 ###
 ### --- CONFIG ---
@@ -13,7 +14,7 @@ platform :ios, '11.0'
 
 
 #Use this variable to change pod install from local_pods, develop_pods, master_pods, feature_pods
-pods_environment = "local" # <- HERE: Change this line, options are: 'local', develop', 'master', 'feature' or 'release'
+pods_environment = "feature" # <- HERE: Change this line, options are: 'local', develop', 'master', 'feature' or 'release'
 
 ###
 ### --- METHODS ---
@@ -24,6 +25,7 @@ def local_pods
   color(32) { puts "Installing Local Pods..." }
   pod 'OPCommons', :path => '../commons-ios/'
   pod 'OPHelpCenter', :path => '../help-center-ios/'
+  pod 'OPUIElements', :path => '../ui-elements-ios/'
   pod 'BasicCommons', :path => '../BasicCommons/'
   pod 'BasicUIElements', :path => '../BasicUIElements/'
   # pod 'CuotasModule', :path => '../CuotasModule/'
@@ -35,14 +37,15 @@ end
 #Use this funcion to compile feature pods as development in featue
 def feature_pods
     ### ONLY FOR DEVELOP PURPOSES ###
-    feature_branch = "master" # <- HERE: Change this line to setup ALL the pods repository from another branch WHEN pods_environment = "develop"
+    feature_branch = "feature-sva-48-landing" # <- HERE: Change this line to setup ALL the pods repository from another branch WHEN pods_environment = "develop"
     ### ONLY FOR DEVELOP PURPOSES ###
 
     color(32) { puts "Installing Develop Pods from branch: #{feature_branch}" }
     pod 'OPCommons', :git => 'https://git.tools.tbk.cl/scm/onepay/commons-ios.git', :branch => "#{feature_branch}"
     pod 'OPHelpCenter', :git => 'https://git.tools.tbk.cl/scm/onepay/help-center-ios.git', :branch => "#{feature_branch}"
-    pod 'BasicCommons', :git => 'git@github.com:kevinOlivet/BasicCommons.git', :branch => "#{feature_branch}"
-    pod 'BasicUIElements', :git => 'git@github.com:kevinOlivet/BasicUIElements.git', :branch => "#{feature_branch}"
+    pod 'OPUIElements', :git => 'https://git.tools.tbk.cl/scm/onepay/ui-elements-ios.git', :branch => "#{feature_branch}"
+    pod 'BasicCommons', :git => 'git@github.com:kevinOlivet/BasicCommons.git', :branch => 'develop'
+    pod 'BasicUIElements', :git => 'git@github.com:kevinOlivet/BasicUIElements.git', :branch => 'develop'
     # pod 'CuotasModule', :git => 'git@github.com:kevinOlivet/CuotasModule.git', :branch => "#{feature_branch}"
 end
 
@@ -51,6 +54,7 @@ def develop_pods
     color(32) { puts "Installing Develop Pods..." }
     pod 'OPCommons', :git => 'https://git.tools.tbk.cl/scm/onepay/commons-ios.git', :branch => 'develop'
     pod 'OPHelpCenter', :git => 'https://git.tools.tbk.cl/scm/onepay/help-center-ios.git', :branch => 'develop'
+    pod 'OPUIElements', :git => 'https://git.tools.tbk.cl/scm/onepay/ui-elements-ios.git', :branch => 'develop'
     pod 'BasicCommons', :git => 'git@github.com:kevinOlivet/BasicCommons.git', :branch => 'develop'
     pod 'BasicUIElements', :git => 'git@github.com:kevinOlivet/BasicUIElements.git', :branch => 'develop'
     # pod 'CuotasModule', :git => 'git@github.com:kevinOlivet/CuotasModule.git', :branch => 'develop'
@@ -61,6 +65,7 @@ def master_pods
     color(32) { puts "Installing Develop Pods..." }
     pod 'OPCommons', :git => 'https://git.tools.tbk.cl/scm/onepay/commons-ios.git', :branch => 'master'
     pod 'OPHelpCenter', :git => 'https://git.tools.tbk.cl/scm/onepay/help-center-ios.git', :branch => 'master'
+    pod 'OPUIElements', :git => 'https://git.tools.tbk.cl/scm/onepay/ui-elements-ios.git', :branch => 'master'
     pod 'BasicCommons', :git => 'git@github.com:kevinOlivet/BasicCommons.git', :branch => 'master'
     pod 'BasicUIElements', :git => 'git@github.com:kevinOlivet/BasicUIElements.git', :branch => 'master'
     # pod 'CuotasModule', :git => 'git@github.com:kevinOlivet/CuotasModule.git', :branch => 'master'
@@ -70,6 +75,7 @@ end
 def release_pods
   pod 'OPCommons', :git => 'https://git.tools.tbk.cl/scm/onepay/commons-ios.git', :branch => 'develop'
   pod 'OPHelpCenter', :git => 'https://git.tools.tbk.cl/scm/onepay/help-center-ios.git', :branch => 'develop'
+  pod 'OPUIElements', :git => 'https://git.tools.tbk.cl/scm/onepay/ui-elements-ios.git', :branch => 'develop'
   pod 'BasicCommons', :git => 'git@github.com:kevinOlivet/BasicCommons.git', :branch => 'master'
   pod 'BasicUIElements', :git => 'git@github.com:kevinOlivet/BasicUIElements.git', :branch => 'master'
   # pod 'CuotasModule', :git => 'git@github.com:kevinOlivet/CuotasModule.git', :branch => 'master'
@@ -119,6 +125,11 @@ target 'BasicMainApp' do
     #              :show_env_vars_in_log => true,
     #              :execution_position => :before_compile
 
+end
+
+pre_install do |installer|
+  handle_assests(installer)
+  workaround_dependencies()
 end
 
 # Workaround for Cocoapods issue #7606

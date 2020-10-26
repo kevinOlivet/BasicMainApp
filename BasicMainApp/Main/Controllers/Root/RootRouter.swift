@@ -26,8 +26,8 @@ class RootRouter: NSObject, RootRoutingLogic, RootDataPassing {
     // MARK: Routing
 
     func routeToCuotasModule() {
-        let preguntasFrecuentesVC = OPWebFactory().getInitVC(webUrl: "https://www.yahoo.com", title: "Preguntas Frequentes")
-        viewController?.present(preguntasFrecuentesVC, animated: true, completion: nil)
+        let helpCenterVC = OPHelpCenterLandingFactory().getInitVC()
+        viewController?.present(helpCenterVC, animated: true, completion: nil)
 //        let storyboard = UIStoryboard(
 //            name: "CuotasMain",
 //            bundle: Utils.bundle(forClass: EnterAmountCleanViewController.classForCoder())
