@@ -14,7 +14,7 @@ install! 'cocoapods', :disable_input_output_paths => true
 
 
 #Use this variable to change pod install from local_pods, develop_pods, master_pods, feature_pods
-pods_environment = "feature" # <- HERE: Change this line, options are: 'local', develop', 'master', 'feature' or 'release'
+pods_environment = "local" # <- HERE: Change this line, options are: 'local', develop', 'master', 'feature' or 'release'
 
 ###
 ### --- METHODS ---
@@ -26,8 +26,8 @@ def local_pods
   pod 'OPCommons', :path => '../commons-ios/'
   pod 'OPHelpCenter', :path => '../help-center-ios/'
   pod 'OPUIElements', :path => '../ui-elements-ios/'
-  pod 'BasicCommons', :path => '../BasicCommons/'
-  pod 'BasicUIElements', :path => '../BasicUIElements/'
+  # pod 'BasicCommons', :path => '../BasicCommons/'
+  # pod 'BasicUIElements', :path => '../BasicUIElements/'
   # pod 'CuotasModule', :path => '../CuotasModule/'
 
   # pod 'OPCommons', :git => 'https://github.com/kevinOlivet/OPCommons.git', :branch => 'feature-sva-integrating-commons'

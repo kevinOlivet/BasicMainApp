@@ -9,7 +9,7 @@
 import UIKit
 
 #if DEBUG
-    import AlamofireNetworkActivityLogger
+//    import AlamofireNetworkActivityLogger
 #endif
 
 @UIApplicationMain
@@ -24,8 +24,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window?.makeKeyAndVisible()
 
         #if DEBUG
-            NetworkActivityLogger.shared.startLogging()
-            NetworkActivityLogger.shared.level = .debug
+//            NetworkActivityLogger.shared.startLogging()
+//            NetworkActivityLogger.shared.level = .debug
         #endif
 
         return true
