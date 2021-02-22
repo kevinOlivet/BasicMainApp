@@ -8,6 +8,7 @@
 
 // TODO: - import additional modules
 import BasicCommons
+import BankUnited
 import CuotasModule
 import UIKit
 
@@ -42,17 +43,27 @@ class MainTabBarViewController: UITabBarController, UITabBarControllerDelegate {
         if Configuration.App.stubs {
             // TODO: - enabdidMoveleStubs for modules here
             CuotasModuleStubs().enableStubs()
+            BankUnitedStubs().enableStubs()
         }
         #endif
 
-        let tabContainerVC = CuotasModuleFactory().getRootViewController()
+        let bankUnitedVC = BankUnitedFactory().getRootViewController()
 
         addViewController(
-            tabContainerVC,
+            bankUnitedVC,
             title: "Home",
             image: UIImage(named: "tab_home"),
             selectedImage: UIImage(named: "tab_home")
         )
+
+//        let tabContainerVC = CuotasModuleFactory().getRootViewController()
+//
+//        addViewController(
+//            tabContainerVC,
+//            title: "Cuotas",
+//            image: UIImage(named: "tab_second"),
+//            selectedImage: UIImage(named: "tab_second")
+//        )
     }
 
     // MARK: - Helpers
