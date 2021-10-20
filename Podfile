@@ -110,10 +110,45 @@ end
 
 # Workaround for Cocoapods issue #7606
 post_install do |installer|
+  fix_deployment_target(installer)
     installer.pods_project.build_configurations.each do |config|
         config.build_settings.delete('CODE_SIGNING_ALLOWED')
         config.build_settings.delete('CODE_SIGNING_REQUIRED')
     end
+end
+
+## Sets the deployment target of the pods to the value configured in this Podfile.
+# https://github.com/CocoaPods/CocoaPods/issues/7314
+def fix_deployment_target(pod_installer)
+  if !pod_installer
+    return
+  end
+  puts "Make the pods deployment target version the same as our target"
+
+  project = pod_installer.pods_project
+  deploymentMap = {}
+  if !project
+    puts "No change on a single project."
+    return
+  end
+  project.build_configurations.each do |config|
+    deploymentMap[config.name] = config.build_settings['IPHONEOS_DEPLOYMENT_TARGET']
+  end
+  # p deploymentMap
+
+  project.targets.each do |t|
+    # puts "  #{t.name}"
+    t.build_configurations.each do |config|
+      oldTarget = config.build_settings['IPHONEOS_DEPLOYMENT_TARGET']
+      newTarget = deploymentMap[config.name]
+      if oldTarget == newTarget
+        # puts "    No needed change for #{config.display_name} target version: #{newTarget.to_f}"
+        next
+      end
+      # puts "    #{config.name} deployment target: #{oldTarget} => #{newTarget}"
+      config.build_settings['IPHONEOS_DEPLOYMENT_TARGET'] = newTarget
+    end
+  end
 end
 
 use_modular_headers!
