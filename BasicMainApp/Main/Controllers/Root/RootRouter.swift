@@ -6,8 +6,8 @@
 //  Copyright © 2018 Jon Olivet. All rights reserved.
 //
 
-import BasicCommons
-import CuotasModule
+import CommonsPack
+import CuotasPack
 import UIKit
 
 @objc

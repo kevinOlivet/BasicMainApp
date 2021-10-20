@@ -7,8 +7,8 @@
 //
 
 // TODO: - import additional modules
-import BasicCommons
-import CuotasModule
+import CommonsPack
+import CuotasPack
 import UIKit
 
 class MainTabBarViewController: UITabBarController, UITabBarControllerDelegate {

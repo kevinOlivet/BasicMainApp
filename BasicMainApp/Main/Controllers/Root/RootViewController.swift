@@ -6,8 +6,9 @@
 //  Copyright © 2020 Jon Olivet. All rights reserved.
 //
 
-import BasicCommons
-import CuotasModule
+import CommonsPack
+import CuotasPack
+import UIKit
 
 protocol RootDisplayLogic: AnyObject {
     func displaySetupUI(viewModel: Root.Basic.ViewModel)
